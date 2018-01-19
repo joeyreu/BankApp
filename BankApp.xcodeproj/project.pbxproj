@@ -12,6 +12,8 @@
 		C0226B4D20124FD500FA0C51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0226B4B20124FD500FA0C51 /* Main.storyboard */; };
 		C0226B4F20124FD500FA0C51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0226B4E20124FD500FA0C51 /* Assets.xcassets */; };
 		C0226B5220124FD500FA0C51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0226B5020124FD500FA0C51 /* LaunchScreen.storyboard */; };
+		C0226B5B201252EE00FA0C51 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0226B5A201252EE00FA0C51 /* LoginViewController.swift */; };
+		C0226B5D201253B800FA0C51 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0226B5C201253B800FA0C51 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		C0226B4E20124FD500FA0C51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0226B5120124FD500FA0C51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0226B5320124FD500FA0C51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0226B5A201252EE00FA0C51 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C0226B5C201253B800FA0C51 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +59,31 @@
 			isa = PBXGroup;
 			children = (
 				C0226B4720124FD500FA0C51 /* AppDelegate.swift */,
-				C0226B4920124FD500FA0C51 /* ViewController.swift */,
 				C0226B4B20124FD500FA0C51 /* Main.storyboard */,
 				C0226B4E20124FD500FA0C51 /* Assets.xcassets */,
 				C0226B5020124FD500FA0C51 /* LaunchScreen.storyboard */,
 				C0226B5320124FD500FA0C51 /* Info.plist */,
+				C0226B5E2012543000FA0C51 /* Models */,
+				C0226B59201252A100FA0C51 /* Controllers */,
 			);
 			path = BankApp;
+			sourceTree = "<group>";
+		};
+		C0226B59201252A100FA0C51 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C0226B4920124FD500FA0C51 /* ViewController.swift */,
+				C0226B5A201252EE00FA0C51 /* LoginViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C0226B5E2012543000FA0C51 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C0226B5C201253B800FA0C51 /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +158,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0226B5D201253B800FA0C51 /* User.swift in Sources */,
+				C0226B5B201252EE00FA0C51 /* LoginViewController.swift in Sources */,
 				C0226B4A20124FD500FA0C51 /* ViewController.swift in Sources */,
 				C0226B4820124FD500FA0C51 /* AppDelegate.swift in Sources */,
 			);
@@ -275,6 +299,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 22WD8DG3NU;
 				INFOPLIST_FILE = BankApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.reusjos.BankApp;
@@ -289,6 +314,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 22WD8DG3NU;
 				INFOPLIST_FILE = BankApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.reusjos.BankApp;
