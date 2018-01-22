@@ -10,8 +10,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="CourierNewBold.ttf">
-            <string>CourierNewPS-BoldMT</string>
+        <array key="TrebuchetMS.ttf">
+            <string>TrebuchetMS</string>
         </array>
     </customFonts>
     <scenes>
@@ -23,52 +23,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="HX9-Vk-Pom">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3X8-SF-fbO">
-                                <rect key="frame" x="20" y="106" width="280" height="185"/>
+                                <rect key="frame" x="20" y="106" width="280" height="189"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bank App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gH-2s-dJq">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="39"/>
-                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
+                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="37"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="u41-eP-dME">
-                                        <rect key="frame" x="40" y="59" width="200" height="70"/>
+                                        <rect key="frame" x="40" y="63" width="200" height="70"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OWg-ua-n6k">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OWg-ua-n6k">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="email"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="htJ-VW-OFI">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="htJ-VW-OFI">
                                                 <rect key="frame" x="0.0" y="40" width="200" height="30"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KrE-pG-D3K">
-                                        <rect key="frame" x="58" y="149" width="164" height="36"/>
+                                        <rect key="frame" x="50" y="153" width="180" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="OQC-gN-LQb"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Login"/>
+                                        <state key="normal" title="Login" backgroundImage="button">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
                                         <connections>
                                             <action selector="loginDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DZ2-sp-LvJ"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="KrE-pG-D3K" secondAttribute="trailing" constant="50" id="5FL-aQ-K9q"/>
                                     <constraint firstItem="u41-eP-dME" firstAttribute="leading" secondItem="3X8-SF-fbO" secondAttribute="leading" constant="40" id="OrG-T6-0ON"/>
-                                    <constraint firstItem="KrE-pG-D3K" firstAttribute="leading" secondItem="3X8-SF-fbO" secondAttribute="leading" constant="58" id="SjE-K4-VvL"/>
+                                    <constraint firstItem="KrE-pG-D3K" firstAttribute="leading" secondItem="3X8-SF-fbO" secondAttribute="leading" constant="50" id="YLk-6A-tml"/>
                                     <constraint firstItem="7gH-2s-dJq" firstAttribute="leading" secondItem="3X8-SF-fbO" secondAttribute="leading" id="b0H-r9-OKG"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="HX9-Vk-Pom" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="807-a9-G8L"/>
+                            <constraint firstItem="HX9-Vk-Pom" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="L13-2e-5Vn"/>
+                            <constraint firstItem="HX9-Vk-Pom" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Nsl-fC-Rgm"/>
                             <constraint firstItem="3X8-SF-fbO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="86" id="RJo-DM-g7Y"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3X8-SF-fbO" secondAttribute="trailing" constant="20" id="eor-zy-QWF"/>
+                            <constraint firstItem="HX9-Vk-Pom" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="uQ4-HI-0gH"/>
                             <constraint firstItem="3X8-SF-fbO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="y4o-sh-w3P"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -80,7 +94,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="135" y="133.09859154929578"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background" width="1024" height="576"/>
+        <image name="button" width="2000" height="1000"/>
+    </resources>
 </document>
