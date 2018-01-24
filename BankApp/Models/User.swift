@@ -83,29 +83,29 @@ class User {
     }
     
     
-    
-/*    func addToKeychain() {
-        let hasLoginKey = UserDefaults.standard.bool(forKey: "hasLoginKey")
-        if !hasLoginKey && isValidEmail(testStr: self.email) {
-            UserDefaults.standard.setValue(self.email, forKey: "email")
-        }
-
-        do {
-            // This is a new account, create a new keychain item with the account name.
-            let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName,
-                                                    account: newAccountName,
-                                                    accessGroup: KeychainConfiguration.accessGroup)
-
-            // Save the password for the new item.
-            try passwordItem.savePassword(newPassword)
-        } catch {
-            fatalError("Error updating keychain - \(error)")
-        }
-
-        // 6
-        UserDefaults.standard.set(true, forKey: "hasLoginKey")
-        
-    }*/
+//
+//    func addToKeychain() {
+//        let hasLoginKey = UserDefaults.standard.bool(forKey: "hasLoginKey")
+//        if !hasLoginKey && isValidEmail(testStr: self.email) {
+//            UserDefaults.standard.setValue(self.email, forKey: "email")
+//        }
+//
+//        do {
+//            // This is a new account, create a new keychain item with the account name.
+//            let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName,
+//                                                    account: self.email,
+//                                                    accessGroup: KeychainConfiguration.accessGroup)
+//
+//            // Save the password for the new item.
+//            try passwordItem.savePassword(newPassword)
+//        } catch {
+//            fatalError("Error updating keychain - \(error)")
+//        }
+//
+//        // 6
+//        UserDefaults.standard.set(true, forKey: "hasLoginKey")
+//
+//    }
     
     func test() {
         print(self.email)
@@ -119,5 +119,13 @@ class User {
         }
     }
     
+    
+    func keychainCheck() -> String {
+        // check stored username (email)
+        if let storedUsername = UserDefaults.standard.value(forKey: "email") as? String {
+            return storedUsername
+        }
+        return ""
+    }
     
 }

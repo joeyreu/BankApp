@@ -177,7 +177,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Accounts" id="WmN-yd-tdE">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="wab-RY-pso">
+                        <barButtonItem key="leftBarButtonItem" style="done" id="wab-RY-pso">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OQY-aG-h6O">
                                 <rect key="frame" x="16" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
