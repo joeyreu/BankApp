@@ -11,13 +11,15 @@ import Foundation
 
 
 struct Transaction {
-    var dateTime: String
+    var dateTime: Double
     var vendor: String
     var amount: Double
+    var type: String
     
-    init(dateTime: String, vendor: String, amount: Double){
+    init(dateTime: Double, vendor: String, amount: Double, type: String){
         self.dateTime = dateTime
         self.vendor = vendor
         self.amount = amount
+        self.type = type
     }
 }

@@ -17,26 +17,28 @@ struct KeychainConfiguration {
 
 
 class LoginViewController: UIViewController {
-
+    
+    // MARK: Constants
+    let loginToAccounts = "LoginToAccounts"
+    
     // MARK: - Variables
     var user: User!
+    var progressHUD: ProgressHUD!
     
     // MARK: Properties
-//    var managedObjectContext: NSManagedObjectContext?
-//    let touchMe = BiometricIDAuth()
-    var passwordItems: [KeychainPasswordItem] = []
-    let createLoginButtonTag = 0
-    let loginButtonTag = 1
     
     // MARK: - Outlets
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passField: UITextField!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // initalize user object
+        
+        // Create and add the progress view to the screen.
+        progressHUD = ProgressHUD(text: "Logging in")
+        self.view.addSubview(progressHUD)
+        progressHUD.hide()
+        
         
     
     }
@@ -57,54 +59,14 @@ class LoginViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func loginDidTouch(_ sender: AnyObject) {
-        // 1
         // Check that text has been entered into both the username and password fields.
         guard let newAccountName = emailField.text,
             let newPassword = passField.text,
             !newAccountName.isEmpty,
             !newPassword.isEmpty else {
-                displayAlert(title: "Error", message: "Enter username and password")
+                displayAlert(title: "Missing Field", message: "Enter username and password")
                 return
         }
-        // 2
-        emailField.resignFirstResponder()
-        passField.resignFirstResponder()
-        
-        // 3
-        if sender.tag == createLoginButtonTag {
-            // 4
-            let hasLoginKey = UserDefaults.standard.bool(forKey: "hasLoginKey")
-            if !hasLoginKey && emailField.hasText {
-                UserDefaults.standard.setValue(emailField.text, forKey: "email")
-            }
-            
-            // 5
-            do {
-                // This is a new account, create a new keychain item with the account name.
-                let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName,
-                                                        account: newAccountName,
-                                                        accessGroup: KeychainConfiguration.accessGroup)
-                
-                // Save the password for the new item.
-                try passwordItem.savePassword(newPassword)
-            } catch {
-                fatalError("Error updating keychain - \(error)")
-            }
-            
-            // 6
-            UserDefaults.standard.set(true, forKey: "hasLoginKey")
-            //loginButton.tag = loginButtonTag
-            //performSegue(withIdentifier: "dismissLogin", sender: self)
-        } else if sender.tag == loginButtonTag {
-            // 7
-//            if checkLogin(username: newAccountName, password: newPassword) {
-//                performSegue(withIdentifier: "dismissLogin", sender: self)
-//            } else {
-//                // 8
-//                showLoginFailedAlert()
-//            }
-        }
-        
         
         let emailStr = emailField.text!
         let passStr = passField.text!
@@ -112,32 +74,48 @@ class LoginViewController: UIViewController {
         if user == nil {
             // create user object
             user = User.init(uid: "", email: "")
-            
         }
+
         // update user object
         if user.updateInfo(uid: "", email: emailStr) {
             // authenticate
-            if user.authenticateUser(password: passStr) { // need to think about callback functionality
-                // then segue
-                displayAlert(title: "Success", message: "function in development")
-            } else {
-                displayAlert(title: "Error", message: "The email or password you have entered is incorrect")
-            }
+            progressHUD.show()
+            user.authenticateUser(password: passStr, completion: completeLogin) 
         } else {
             displayAlert(title: "Error", message: "You have entered an invalid email")
+        }
+        
+        // clear password field
+        self.passField.text = ""
+    }
+    
+    // on login complete, completion handler
+    func completeLogin(result: Bool){
+        progressHUD.hide()
+        if result {
+            //self.displayAlert(title: "Success", message: "You have been authenticated successfully")
+            self.performSegue(withIdentifier: self.loginToAccounts, sender: nil)
+        } else {
+            self.displayAlert(title: "Error", message: "The email or password you have entered is incorrect")
         }
         
     }
     
     
-    /*
+
+    
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    // pass user to next view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let navVC = segue.destination as? UINavigationController
+        let tableVC = navVC?.viewControllers.first as! AccountsTableViewController
+        tableVC.user = self.user
     }
-    */
-
 }
+    
+    
+
+
+

@@ -10,17 +10,21 @@ import Foundation
 
 
 struct Account {
-    var uid: String
-    var email: String
-    let type: String
-    var transactions: [Transaction]
+    var accName: String
+    var accNum: Int
+    var accBal: Double
+    var accType: String
+    var accid: String
     
-    init(uid: String, email: String, type: String){
-        self.uid = uid
-        self.email = email
-        self.type = type
-        self.transactions = []
-        
+    
+    init(name: String, number: Int, balance: Double, type: String, accid: String){
+        self.accName = name
+        self.accNum = number
+        self.accBal = balance
+        self.accType = type
+        self.accid = accid
     }
+    
+
     
 }

@@ -7,25 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		58F88043AFE353595C7917D8 /* libPods-BankApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64D17B04FE279875EC656F23 /* libPods-BankApp.a */; };
 		C0022AE820127C3600763FBD /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0022AE720127C3600763FBD /* DataModel.swift */; };
 		C0022AEA2012802F00763FBD /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0022AE92012802F00763FBD /* Account.swift */; };
 		C0022AEC2012803D00763FBD /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0022AEB2012803D00763FBD /* Transaction.swift */; };
 		C0022AEE2012827B00763FBD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0022AED2012827B00763FBD /* GoogleService-Info.plist */; };
 		C0022AF12012878E00763FBD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0022AF02012878E00763FBD /* Default-568h@2x.png */; };
+		C0172A75210FCCDF150D863A /* Pods_BankApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC39A73D129C93C4033A651 /* Pods_BankApp.framework */; };
 		C0226B4820124FD500FA0C51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0226B4720124FD500FA0C51 /* AppDelegate.swift */; };
-		C0226B4A20124FD500FA0C51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0226B4920124FD500FA0C51 /* ViewController.swift */; };
 		C0226B4D20124FD500FA0C51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0226B4B20124FD500FA0C51 /* Main.storyboard */; };
 		C0226B4F20124FD500FA0C51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0226B4E20124FD500FA0C51 /* Assets.xcassets */; };
 		C0226B5220124FD500FA0C51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0226B5020124FD500FA0C51 /* LaunchScreen.storyboard */; };
 		C0226B5B201252EE00FA0C51 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0226B5A201252EE00FA0C51 /* LoginViewController.swift */; };
 		C0226B5D201253B800FA0C51 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0226B5C201253B800FA0C51 /* User.swift */; };
 		C04CEE2D2016440700DB6517 /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04CEE2C2016440700DB6517 /* KeychainPasswordItem.swift */; };
+		C05A78DE20166F1B000AABC1 /* AccountsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05A78DD20166F1B000AABC1 /* AccountsTableViewController.swift */; };
+		C05A78E020178D80000AABC1 /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05A78DF20178D80000AABC1 /* AccountTableViewCell.swift */; };
+		C05A78E22017937D000AABC1 /* TransactionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05A78E12017937D000AABC1 /* TransactionTableViewController.swift */; };
+		C05A78E42017A3E3000AABC1 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05A78E32017A3E3000AABC1 /* TransactionTableViewCell.swift */; };
+		C096D5232016620F0002F2B4 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C096D5222016620F0002F2B4 /* ProgressHUD.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2BC39A73D129C93C4033A651 /* Pods_BankApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BankApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		573C34488F141B115EA0EDE7 /* Pods-BankApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BankApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BankApp/Pods-BankApp.release.xcconfig"; sourceTree = "<group>"; };
-		64D17B04FE279875EC656F23 /* libPods-BankApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BankApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EAC39CB131E9536FEF1C3BB /* Pods-BankApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BankApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BankApp/Pods-BankApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C0022AE720127C3600763FBD /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		C0022AE92012802F00763FBD /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -34,7 +38,6 @@
 		C0022AF02012878E00763FBD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C0226B4420124FD500FA0C51 /* BankApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BankApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0226B4720124FD500FA0C51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C0226B4920124FD500FA0C51 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C0226B4C20124FD500FA0C51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C0226B4E20124FD500FA0C51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0226B5120124FD500FA0C51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -42,6 +45,11 @@
 		C0226B5A201252EE00FA0C51 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C0226B5C201253B800FA0C51 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C04CEE2C2016440700DB6517 /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
+		C05A78DD20166F1B000AABC1 /* AccountsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsTableViewController.swift; sourceTree = "<group>"; };
+		C05A78DF20178D80000AABC1 /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
+		C05A78E12017937D000AABC1 /* TransactionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewController.swift; sourceTree = "<group>"; };
+		C05A78E32017A3E3000AABC1 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		C096D5222016620F0002F2B4 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58F88043AFE353595C7917D8 /* libPods-BankApp.a in Frameworks */,
+				C0172A75210FCCDF150D863A /* Pods_BankApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,8 +119,12 @@
 		C0226B59201252A100FA0C51 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C0226B4920124FD500FA0C51 /* ViewController.swift */,
+				C096D5222016620F0002F2B4 /* ProgressHUD.swift */,
+				C05A78DF20178D80000AABC1 /* AccountTableViewCell.swift */,
+				C05A78E32017A3E3000AABC1 /* TransactionTableViewCell.swift */,
 				C0226B5A201252EE00FA0C51 /* LoginViewController.swift */,
+				C05A78DD20166F1B000AABC1 /* AccountsTableViewController.swift */,
+				C05A78E12017937D000AABC1 /* TransactionTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -131,7 +143,7 @@
 		D4134F7E9997184A8E23158C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				64D17B04FE279875EC656F23 /* libPods-BankApp.a */,
+				2BC39A73D129C93C4033A651 /* Pods_BankApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -215,9 +227,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BankApp/Pods-BankApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -230,9 +253,22 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BankApp/Pods-BankApp-resources.sh",
+				"${PODS_ROOT}/JGProgressHUD/JGProgressHUD/Resources/jg_hud_error.png",
+				"${PODS_ROOT}/JGProgressHUD/JGProgressHUD/Resources/jg_hud_error@2x.png",
+				"${PODS_ROOT}/JGProgressHUD/JGProgressHUD/Resources/jg_hud_error@3x.png",
+				"${PODS_ROOT}/JGProgressHUD/JGProgressHUD/Resources/jg_hud_success.png",
+				"${PODS_ROOT}/JGProgressHUD/JGProgressHUD/Resources/jg_hud_success@2x.png",
+				"${PODS_ROOT}/JGProgressHUD/JGProgressHUD/Resources/jg_hud_success@3x.png",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/jg_hud_error.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/jg_hud_error@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/jg_hud_error@3x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/jg_hud_success.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/jg_hud_success@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/jg_hud_success@3x.png",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -266,11 +302,15 @@
 			files = (
 				C0022AE820127C3600763FBD /* DataModel.swift in Sources */,
 				C0226B5D201253B800FA0C51 /* User.swift in Sources */,
+				C096D5232016620F0002F2B4 /* ProgressHUD.swift in Sources */,
+				C05A78E020178D80000AABC1 /* AccountTableViewCell.swift in Sources */,
 				C0022AEC2012803D00763FBD /* Transaction.swift in Sources */,
+				C05A78DE20166F1B000AABC1 /* AccountsTableViewController.swift in Sources */,
 				C04CEE2D2016440700DB6517 /* KeychainPasswordItem.swift in Sources */,
 				C0226B5B201252EE00FA0C51 /* LoginViewController.swift in Sources */,
-				C0226B4A20124FD500FA0C51 /* ViewController.swift in Sources */,
+				C05A78E22017937D000AABC1 /* TransactionTableViewController.swift in Sources */,
 				C0226B4820124FD500FA0C51 /* AppDelegate.swift in Sources */,
+				C05A78E42017A3E3000AABC1 /* TransactionTableViewCell.swift in Sources */,
 				C0022AEA2012802F00763FBD /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
