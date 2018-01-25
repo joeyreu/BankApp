@@ -30,6 +30,7 @@ class LoginViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +40,9 @@ class LoginViewController: UIViewController {
         self.view.addSubview(progressHUD)
         progressHUD.hide()
         
-        
-    
+        // Initialize user object and set emailField
+        user = User()
+        emailField.text! = user.email
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,15 +73,11 @@ class LoginViewController: UIViewController {
         let emailStr = emailField.text!
         let passStr = passField.text!
         
-        if user == nil {
-            // create user object
-            user = User.init(uid: "", email: "")
-        }
-
         // update user object
-        if user.updateInfo(uid: "", email: emailStr) {
+        if user.updateEmail(email: emailStr) {
             // authenticate
             progressHUD.show()
+            loginButton.isEnabled = false
             user.authenticateUser(password: passStr, completion: completeLogin) 
         } else {
             displayAlert(title: "Error", message: "You have entered an invalid email")
@@ -92,6 +90,7 @@ class LoginViewController: UIViewController {
     // on login complete, completion handler
     func completeLogin(result: Bool){
         progressHUD.hide()
+        loginButton.isEnabled = true
         if result {
             //self.displayAlert(title: "Success", message: "You have been authenticated successfully")
             self.performSegue(withIdentifier: self.loginToAccounts, sender: nil)

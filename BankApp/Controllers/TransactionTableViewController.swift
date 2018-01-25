@@ -20,16 +20,13 @@ class TransactionTableViewController: UITableViewController {
         
         print("LOADING TRANSACTIONS")
         // Create and add the progress view to the screen.
-        progressHUD = ProgressHUD(text: "Loading Accounts")
+        progressHUD = ProgressHUD(text: "Loading Transactions")
         self.view.addSubview(progressHUD)
         self.title = "\(self.account.accName)"
         user.loadTransactions(acc: account) {
-            (result) in
-            if result {
-                self.tableView.reloadData()
-                self.progressHUD.hide()
-                
-            }
+            () in
+            self.tableView.reloadData()
+            self.progressHUD.hide()
         }
         
         // Uncomment the following line to preserve selection between presentations

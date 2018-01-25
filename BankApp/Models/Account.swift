@@ -16,7 +16,6 @@ struct Account {
     var accType: String
     var accid: String
     
-    
     init(name: String, number: Int, balance: Double, type: String, accid: String){
         self.accName = name
         self.accNum = number
@@ -24,7 +23,4 @@ struct Account {
         self.accType = type
         self.accid = accid
     }
-    
-
-    
 }

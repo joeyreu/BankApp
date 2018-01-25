@@ -16,21 +16,16 @@ class User {
     var savingAccounts: [Account] = []
     var transactionList: [Transaction] = []
     
-    var passwordItems: [KeychainPasswordItem] = []
-    
-    
-    init(authData: User) {
-        uid = authData.uid
-        email = authData.email
-        model = DataModel()
-    }
-    
-    init(uid: String, email: String){
-        self.uid = uid
-        self.email = email
+    init(){
+        self.uid = ""
         self.model = DataModel()
-//        self.uid = self.model.getUid()
-//        print("userid init: \(self.model.getUid())")
+        
+        // check if email is stored in keychain
+        if let storedUsername = UserDefaults.standard.value(forKey: "email") as? String {
+            self.email = storedUsername
+        } else {
+            self.email = ""
+        }
     }
     
     // helper function that checks if input is a valid email
@@ -42,9 +37,8 @@ class User {
     
     // updateInfo():
     //      returns true and updates properties if valid email, false otherwise
-    func updateInfo(uid: String, email: String) -> Bool {
+    func updateEmail( email: String) -> Bool {
         if isValidEmail(testStr: email) {
-            self.uid = uid
             self.email = email
             return true
         }
@@ -58,6 +52,7 @@ class User {
         self.model.authenticate(email: self.email, password: password) {
             (result) in
             if result {
+                UserDefaults.standard.setValue(self.email, forKey: "email") // add email to keychain
                 self.uid = self.model.getUid()
                 print("userid: \(self.model.getUid())")
             }
@@ -65,67 +60,58 @@ class User {
         }
     }
     
-    func loadAccounts(completion: @escaping (Bool) -> Void){
+    // MARK: LOADING DATA
+    func loadAccounts(completion: @escaping () -> Void){
         model.fetchAccounts(uid: self.uid) {
-            (spendArray, saveArray) in
-            self.spendingAccounts = spendArray
-            self.savingAccounts = saveArray
-            completion(true)
+            dict in
+            // PARSE THE DICTIONARY HERE
+            var newSpAs: [Account] = []
+            var newSAs: [Account] = []
+            dict?.forEach({
+                (key, value) in
+                let acc = value as? Dictionary<String, Any>
+                let newAcc = Account(name: acc!["Account Name"] as! String,
+                                     number: acc!["Account Number"] as! Int,
+                                     balance: acc!["Account Balance"] as! Double,
+                                     type: acc!["Account Type"] as! String,
+                                     accid: key)
+                newAcc.accType == "Spending" ? newSpAs.append(newAcc) : newSAs.append(newAcc)
+            })
+            self.spendingAccounts = newSpAs
+            self.savingAccounts = newSAs
+            completion()
         }
     }
-    
-    func loadTransactions(acc: Account, completion: @escaping (Bool) -> Void) {
+    func loadTransactions(acc: Account, completion: @escaping () -> Void) {
         model.fetchTransactions(uid: self.uid, acc: acc) {
-            (transArr) in
-            self.transactionList = transArr
-            completion(true)
+            (dict) in
+            var transA: [Transaction] = []
+            dict?.forEach({
+                (key, value) in
+                let trans = value as? Dictionary<String, Any>
+                let newTrans = Transaction(dateTime: trans!["DateTime"] as! Double,
+                                           vendor: trans!["Vendor"] as! String,
+                                           amount: trans!["Amount"] as! Double,
+                                           type: trans!["Type"] as! String)
+                transA.append(newTrans)
+            })
+            self.transactionList = transA.sorted(by: { $0.dateTime > $1.dateTime })
+            completion()
         }
+        
     }
     
-    
-//
-//    func addToKeychain() {
-//        let hasLoginKey = UserDefaults.standard.bool(forKey: "hasLoginKey")
-//        if !hasLoginKey && isValidEmail(testStr: self.email) {
-//            UserDefaults.standard.setValue(self.email, forKey: "email")
-//        }
-//
-//        do {
-//            // This is a new account, create a new keychain item with the account name.
-//            let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName,
-//                                                    account: self.email,
-//                                                    accessGroup: KeychainConfiguration.accessGroup)
-//
-//            // Save the password for the new item.
-//            try passwordItem.savePassword(newPassword)
-//        } catch {
-//            fatalError("Error updating keychain - \(error)")
-//        }
-//
-//        // 6
-//        UserDefaults.standard.set(true, forKey: "hasLoginKey")
-//
-//    }
-    
-    func test() {
-        print(self.email)
-    }
-    
-    
+    // LOGOUT FUNCTION
     func logout(completion: @escaping (Bool) -> Void) {
         model.logout() {
             (result) in
+            if result {
+                self.spendingAccounts = []
+                self.savingAccounts = []
+                self.transactionList = []
+            }
             completion(result)
         }
-    }
-    
-    
-    func keychainCheck() -> String {
-        // check stored username (email)
-        if let storedUsername = UserDefaults.standard.value(forKey: "email") as? String {
-            return storedUsername
-        }
-        return ""
     }
     
 }

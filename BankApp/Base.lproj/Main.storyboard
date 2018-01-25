@@ -92,6 +92,7 @@
                     </view>
                     <connections>
                         <outlet property="emailField" destination="OWg-ua-n6k" id="X0h-ic-ycI"/>
+                        <outlet property="loginButton" destination="KrE-pG-D3K" id="bHk-um-sF8"/>
                         <outlet property="passField" destination="htJ-VW-OFI" id="nYd-1O-2Un"/>
                         <segue destination="80L-Nz-9Pn" kind="presentation" identifier="LoginToAccounts" id="I7b-cg-klQ"/>
                     </connections>

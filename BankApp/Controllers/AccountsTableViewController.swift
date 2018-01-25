@@ -23,12 +23,11 @@ class AccountsTableViewController: UITableViewController {
         
         
         // load accounts on database update - reload data
+        print("LOADING ACCOUNTS")
         user.loadAccounts() {
-            (result) in
-            if result {
-                self.tableView.reloadData()
-                self.progressHUD.hide()
-            }
+            () in
+            self.tableView.reloadData()
+            self.progressHUD.hide()
         }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -78,10 +77,7 @@ class AccountsTableViewController: UITableViewController {
             accCell.AccountNumber.text! = account.accNum.description
             accCell.AccountBalance.text! = String(format: "%.2f", account.accBal)
         }
-        
         return cell
-            
-        
     }
 
     
